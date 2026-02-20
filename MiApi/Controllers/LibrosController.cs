@@ -31,7 +31,7 @@ namespace MiApi.Controllers
             return CreatedAtAction(nameof(GetLibros), new { id = libro.id }, libro);
         }
         // get api/libros/{id}
-        [HttpGet("{int:id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Libro>> GetLibroById(int id)
             {
             var libro = await _context.Libros.FindAsync(id);
@@ -40,7 +40,7 @@ namespace MiApi.Controllers
             return Ok(libro);
         }
         // put api/libros/{id}
-        [HttpPut("{int:id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> PutLibro( int id, Libro libro)
         {
             if (id != libro.id)
@@ -60,7 +60,7 @@ namespace MiApi.Controllers
             return NoContent();
         }
         // delete api/libros/{id}
-        [HttpDelete("{int:id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteLibro(int id)
         {
             var libro = await _context.Libros.FindAsync(id);
